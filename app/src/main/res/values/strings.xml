@@ -6,4 +6,7 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">tMggfGZMHJZHUdypIVwYKvnqnY5k2QsojE6ISwL4</string>
     <string name="back4app_client_key">4WgUYqIgE89G0l5ksjSrNj8kwXlDPenOTodFkmPr</string>
+    <string name="description">Description</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="submit">Submit</string>
 </resources>
