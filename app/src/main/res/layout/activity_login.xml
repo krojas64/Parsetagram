@@ -22,7 +22,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
-        android:ems="10"
         android:hint="@string/username"
         android:inputType="textMultiLine"
         android:maxLines="1" />
@@ -47,5 +46,12 @@
         android:layout_marginTop="25dp"
         android:backgroundTint="@color/green"
         android:text="@string/login" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:text="@string/sign_up" />
 
 </LinearLayout>
