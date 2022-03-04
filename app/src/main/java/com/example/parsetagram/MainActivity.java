@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTakePhoto;
     private ImageView ivPost;
     private Button btnSubmit;
+    private Button btnLogout;
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnTakePhoto = findViewById(R.id.btnTakePhoto);
         ivPost = findViewById(R.id.ivPost);
         btnSubmit = findViewById(R.id.btnSubmit);
+        btnLogout = findViewById(R.id.btnLogout);
 
         btnTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description,currentUser, photoFile);
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "onClick Logout button");
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                ParseUser.logOut();
+                finish();
             }
         });
     }
