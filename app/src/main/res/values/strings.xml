@@ -10,4 +10,5 @@
     <string name="take_a_photo">Take a photo</string>
     <string name="submit">Submit</string>
     <string name="logout">Logout</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

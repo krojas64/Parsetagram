@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUser;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         etUser = findViewById(R.id.etUser);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnSignUp = findViewById(R.id.btnSignUp);
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
@@ -44,6 +47,25 @@ public class LoginActivity extends AppCompatActivity {
                 loginUser(user, password);
             }
         });
+
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "onClick Sign Up button");
+                ParseUser user = new ParseUser();
+                user.setUsername(etUser.getText().toString());
+                user.setPassword(etPassword.getText().toString());
+                user.signUpInBackground(new SignUpCallback() {
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            goMainActivity();
+                        } else {
+                            Log.e(TAG, "Problem signing up", e);
+                        }
+                    }
+                });
+            }
+        });
     }
 
     private void loginUser(String user, String password){
@@ -53,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null){
-                    Log.e(TAG, "Problem logging in");
+                    Log.e(TAG, "Problem logging in", e);
                     return;
                 }
                 goMainActivity();
