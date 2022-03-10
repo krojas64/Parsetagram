@@ -8,37 +8,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="@string/description"
-        android:inputType="textMultiLine"
-        android:lines="1"
-        android:maxLines="5"
-        android:singleLine="false" />
-
-    <Button
-        android:id="@+id/btnTakePhoto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ivPost"
-        android:layout_marginBottom="5dp"
-        android:text="@string/take_a_photo" />
-
-    <ImageView
-        android:id="@+id/ivPost"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginBottom="5dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/submit" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
