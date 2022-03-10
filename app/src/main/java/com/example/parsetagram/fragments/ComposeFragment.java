@@ -79,7 +79,6 @@ public class ComposeFragment extends Fragment {
             }
         });
 
-        //queryPosts();
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,20 +166,4 @@ public class ComposeFragment extends Fragment {
         });
     }
 
-    private void queryPosts(){
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if(e != null){
-                    Log.e(TAG, "Problem getting posts", e);
-                    return;
-                }
-                for (Post post : posts){
-                    Log.i(TAG, "Post: " + post.getDescription() + ", user: " + post.getUser().getUsername());
-                }
-            }
-        });
-    }
 }
