@@ -37,11 +37,7 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ComposeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ComposeFragment extends Fragment {
 
     public static final String TAG = "ComposeFragment";
@@ -50,6 +46,7 @@ public class ComposeFragment extends Fragment {
     private Button btnTakePhoto;
     private ImageView ivPost;
     private Button btnSubmit;
+    private Button btnLogout;
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -71,6 +68,7 @@ public class ComposeFragment extends Fragment {
         btnTakePhoto = view.findViewById(R.id.btnTakePhoto);
         ivPost = view.findViewById(R.id.ivPost);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+        btnLogout = view.findViewById(R.id.btnLogout);
 
         btnTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +91,15 @@ public class ComposeFragment extends Fragment {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description,currentUser, photoFile);
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "onClick Logout button");
+                ParseUser.logOut();
+                getActivity().finish();
             }
         });
     }

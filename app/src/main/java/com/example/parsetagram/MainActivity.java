@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.parsetagram.fragments.ComposeFragment;
 import com.example.parsetagram.fragments.PostsFragment;
+import com.example.parsetagram.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 57;
-    private Button btnLogout;
+    //private Button btnLogout;
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
 
@@ -48,18 +49,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnLogout = findViewById(R.id.btnLogout);
+        //btnLogout = findViewById(R.id.btnLogout);
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "onClick Logout button");
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                ParseUser.logOut();
-                finish();
-            }
-        });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
@@ -74,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.action_profile:
                     default:
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
